@@ -5,10 +5,10 @@
 
 namespace SprykerFeature\Zed\Tax\Persistence\Propel;
 
-use SprykerFeature\Zed\Tax\Persistence\Propel\Base\SpyTaxRate as BaseSpyTaxRate;
+use Orm\Zed\Tax\Persistence\Base\SpyTaxSetQuery as BaseSpyTaxSetQuery;
 
 /**
- * Skeleton subclass for representing a row from the 'spy_tax_rate' table.
+ * Skeleton subclass for performing query and update operations on the 'spy_tax_set' table.
  *
  *
  *
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\Tax\Persistence\Propel\Base\SpyTaxRate as BaseSpyTaxRate;
  * long as it does not already exist in the output directory.
  *
  */
-class SpyTaxRate extends BaseSpyTaxRate
+abstract class AbstractSpyTaxSetQuery extends BaseSpyTaxSetQuery
 {
 
-}
+} // SpyTaxSetQuery
