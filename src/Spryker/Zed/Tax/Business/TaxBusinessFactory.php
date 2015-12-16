@@ -17,7 +17,7 @@ use Spryker\Zed\Tax\Business\Model\TaxWriterInterface;
 /**
  * @method TaxConfig getConfig()
  */
-class TaxDependencyContainer extends AbstractBusinessFactory
+class TaxBusinessFactory extends AbstractBusinessFactory
 {
 
     /**
