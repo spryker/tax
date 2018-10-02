@@ -36,7 +36,7 @@ class AccruedTaxCalculator implements AccruedTaxCalculatorInterface
      * @param bool $round
      * @param string|null $identifier
      *
-     * @return float
+     * @return int
      */
     public function getTaxValueFromPrice($price, $taxRate, $round = false, $identifier = null)
     {
