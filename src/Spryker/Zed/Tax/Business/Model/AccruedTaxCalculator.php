@@ -59,7 +59,7 @@ class AccruedTaxCalculator implements AccruedTaxCalculatorInterface
      */
     public function getTaxValueFromNetPrice($price, $taxRate, $identifier = null)
     {
-        $taxAmount = $this->priceCalculationHelper->getTaxValueFromNetPrice($price, $taxRate);
+        $taxAmount = $this->priceCalculationHelper->getTaxValueFromNetPrice($price, $taxRate, false);
 
         $taxAmount += $this->getRoundingErrorDelta($identifier);
 
