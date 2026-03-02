@@ -23,11 +23,6 @@ use SprykerTest\Zed\Tax\TaxCommunicationTester;
  */
 class TaxSetEditCest
 {
-    /**
-     * @param \SprykerTest\Zed\Tax\TaxCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbIsVisible(TaxCommunicationTester $i): void
     {
         $i->listDataTable(TaxSetListPage::DATA_TABLE_URL);
@@ -35,11 +30,6 @@ class TaxSetEditCest
         $i->seeBreadcrumbNavigation('Administration / Tax Sets / Edit Tax Set');
     }
 
-    /**
-     * @param \SprykerTest\Zed\Tax\TaxCommunicationTester $i
-     *
-     * @return void
-     */
     public function dataIsProvided(TaxCommunicationTester $i): void
     {
         $i->listDataTable(TaxSetListPage::DATA_TABLE_URL);

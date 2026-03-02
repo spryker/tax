@@ -18,9 +18,6 @@ class TaxAmountAfterCancellationCalculator implements CalculatorInterface
      */
     protected $accruedTaxCalculator;
 
-    /**
-     * @param \Spryker\Zed\Tax\Business\Model\AccruedTaxCalculatorInterface $accruedTaxCalculator
-     */
     public function __construct(AccruedTaxCalculatorInterface $accruedTaxCalculator)
     {
         $this->accruedTaxCalculator = $accruedTaxCalculator;

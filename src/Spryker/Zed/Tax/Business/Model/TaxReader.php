@@ -28,10 +28,6 @@ class TaxReader implements TaxReaderInterface
      */
     protected $taxRepository;
 
-    /**
-     * @param \Spryker\Zed\Tax\Persistence\TaxQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\Tax\Persistence\TaxRepositoryInterface $taxRepository
-     */
     public function __construct(
         TaxQueryContainerInterface $queryContainer,
         TaxRepositoryInterface $taxRepository
@@ -167,42 +163,21 @@ class TaxReader implements TaxReaderInterface
         return $taxSetQuery->count() > 0;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return bool
-     */
     public function taxSetWithSameNameExists(string $name): bool
     {
         return !$this->taxRepository->isTaxSetNameUnique($name);
     }
 
-    /**
-     * @param string $name
-     * @param int $idTaxSet
-     *
-     * @return bool
-     */
     public function taxSetWithSameNameAndIdExists(string $name, int $idTaxSet): bool
     {
         return !$this->taxRepository->isTaxSetNameAndIdUnique($name, $idTaxSet);
     }
 
-    /**
-     * @param int $idTaxRate
-     *
-     * @return \Generated\Shared\Transfer\TaxRateTransfer|null
-     */
     public function findTaxRate(int $idTaxRate): ?TaxRateTransfer
     {
         return $this->taxRepository->findTaxRate($idTaxRate);
     }
 
-    /**
-     * @param int $idTaxSet
-     *
-     * @return \Generated\Shared\Transfer\TaxSetTransfer|null
-     */
     public function findTaxSet(int $idTaxSet): ?TaxSetTransfer
     {
         return $this->taxRepository->findTaxSet($idTaxSet);

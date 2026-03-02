@@ -61,9 +61,6 @@ class WriterTest extends Unit
      */
     protected $taxFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -71,9 +68,6 @@ class WriterTest extends Unit
         $this->taxFacade = new TaxFacade();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\TaxRateTransfer
-     */
     private function createTaxRateTransfer(): TaxRateTransfer
     {
         $taxRateTransfer = new TaxRateTransfer();
@@ -83,17 +77,11 @@ class WriterTest extends Unit
         return $taxRateTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\TaxSetTransfer
-     */
     private function createTaxSetTransfer(): TaxSetTransfer
     {
         return (new TaxSetBuilder())->build();
     }
 
-    /**
-     * @return void
-     */
     public function testCreateTaxRate(): void
     {
         $taxRateTransfer = $this->createTaxRateTransfer();
@@ -107,9 +95,6 @@ class WriterTest extends Unit
         $this->assertSame(static::DUMMY_TAX_RATE1_NAME, $taxRateQuery->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateTaxSetWithNewTaxRate(): void
     {
         $taxSetTransfer = $this->createTaxSetTransfer();
@@ -126,9 +111,6 @@ class WriterTest extends Unit
         $this->assertNotEmpty($taxSetQuery->getSpyTaxRates());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateTaxSetWithExistingTaxRate(): void
     {
         $taxRateTransfer = $this->createTaxRateTransfer();
@@ -144,9 +126,6 @@ class WriterTest extends Unit
         $this->assertNotEmpty($taxSetQuery->getSpyTaxRates());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateTaxRate(): void
     {
         $taxRateTransfer = $this->createTaxRateTransfer();
@@ -166,9 +145,6 @@ class WriterTest extends Unit
         $this->assertSame(static::DUMMY_TAX_RATE2_NAME, $taxRateQuery->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateTaxSet(): void
     {
         $taxRateTransfer = $this->createTaxRateTransfer();
@@ -196,9 +172,6 @@ class WriterTest extends Unit
         $this->assertSame(static::DUMMY_TAX_RATE2_NAME, $taxRateEntity->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testAddTaxRateToTaxSet(): void
     {
         $taxSetTransfer = $this->createTaxSetTransfer();
@@ -218,9 +191,6 @@ class WriterTest extends Unit
         $this->assertSame(sprintf('%.2f', static::DUMMY_TAX_RATE2_PERCENTAGE), $taxSetQuery->getSpyTaxRates()[1]->getRate());
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveTaxRateFromTaxSet(): void
     {
         $taxRate1Transfer = $this->createTaxRateTransfer();
@@ -249,9 +219,6 @@ class WriterTest extends Unit
         $this->assertSame($rate1Id, $taxSetEntity->getSpyTaxRates()[0]->getIdTaxRate());
     }
 
-    /**
-     * @return void
-     */
     public function testExceptionRaisedIfAttemptingToUpdateNonExistentTaxRate(): void
     {
         $taxRateTransfer = $this->createTaxRateTransfer();
@@ -261,9 +228,6 @@ class WriterTest extends Unit
         $this->taxFacade->updateTaxRate($taxRateTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testExceptionRaisedIfAttemptingToRemoveTaxRateFromTaxSetWithSingleTaxRate(): void
     {
         $this->expectException(MissingTaxRateException::class);
@@ -278,9 +242,6 @@ class WriterTest extends Unit
         $this->taxFacade->removeTaxRateFromTaxSet($taxSetId, $rateId);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteTaxRate(): void
     {
         $id = $this->taxFacade->createTaxRate($this->createTaxRateTransfer())->getIdTaxRate();
@@ -296,9 +257,6 @@ class WriterTest extends Unit
         $this->assertEmpty($taxRateEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteTaxSetShouldDeleteSetButNotTheAssociatedRate(): void
     {
         $taxRateTransfer = $this->createTaxRateTransfer();
@@ -326,9 +284,6 @@ class WriterTest extends Unit
         $this->assertEmpty($taxSetEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateTaxSetWithExistingTaxSetNameShouldRaiseException(): void
     {
         //Arrange
@@ -345,9 +300,6 @@ class WriterTest extends Unit
         $this->taxFacade->createTaxSet($taxSetTransfer2);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateTaxSetWithExistingTaxSetNameShouldRaiseException(): void
     {
         //Arrange

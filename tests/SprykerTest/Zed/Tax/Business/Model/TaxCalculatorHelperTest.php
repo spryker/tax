@@ -23,9 +23,6 @@ use Spryker\Zed\Tax\Business\Model\PriceCalculationHelper;
  */
 class TaxCalculatorHelperTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testTaxValueFromTax(): void
     {
         $taxCalculatorHelper = $this->createPriceCalculationHelper();
@@ -35,9 +32,6 @@ class TaxCalculatorHelperTest extends Unit
         $this->assertSame(84, $netValueFromPrice);
     }
 
-    /**
-     * @return void
-     */
     public function testTaxValueFroPrice(): void
     {
         $taxCalculatorHelper = $this->createPriceCalculationHelper();
@@ -47,9 +41,6 @@ class TaxCalculatorHelperTest extends Unit
         $this->assertSame(16, $netValueFromPrice);
     }
 
-    /**
-     * @return void
-     */
     public function testTaxRateFromPrice(): void
     {
         $taxCalculatorHelper = $this->createPriceCalculationHelper();
@@ -59,9 +50,6 @@ class TaxCalculatorHelperTest extends Unit
         $this->assertSame(46, $netValueFromPrice);
     }
 
-    /**
-     * @return \Spryker\Zed\Tax\Business\Model\PriceCalculationHelper
-     */
     protected function createPriceCalculationHelper(): PriceCalculationHelper
     {
         return new PriceCalculationHelper();

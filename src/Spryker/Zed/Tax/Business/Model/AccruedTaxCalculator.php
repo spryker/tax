@@ -26,9 +26,6 @@ class AccruedTaxCalculator implements AccruedTaxCalculatorInterface
         self::DEFAULT_BUCKET_NAME => 0,
     ];
 
-    /**
-     * @param \Spryker\Zed\Tax\Business\Model\PriceCalculationHelperInterface $priceCalculationHelper
-     */
     public function __construct(PriceCalculationHelperInterface $priceCalculationHelper)
     {
         $this->priceCalculationHelper = $priceCalculationHelper;

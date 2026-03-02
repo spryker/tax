@@ -27,10 +27,6 @@ class TaxDefault implements TaxDefaultInterface
      */
     protected TaxToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\Tax\Dependency\Facade\TaxToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\Tax\TaxConfig $config
-     */
     public function __construct(TaxToStoreFacadeInterface $storeFacade, TaxConfig $config)
     {
         $this->config = $config;

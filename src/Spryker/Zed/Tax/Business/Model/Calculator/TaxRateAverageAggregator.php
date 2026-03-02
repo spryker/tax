@@ -20,9 +20,6 @@ class TaxRateAverageAggregator implements CalculatorInterface
      */
     protected $priceCalculationHelper;
 
-    /**
-     * @param \Spryker\Zed\Tax\Business\Model\PriceCalculationHelperInterface $priceCalculationHelper
-     */
     public function __construct(PriceCalculationHelperInterface $priceCalculationHelper)
     {
         $this->priceCalculationHelper = $priceCalculationHelper;

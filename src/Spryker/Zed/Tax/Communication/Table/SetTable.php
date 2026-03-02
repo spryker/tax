@@ -37,10 +37,6 @@ class SetTable extends AbstractTable
      */
     protected $utilDateTimeService;
 
-    /**
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxSetQuery $taxSetQuery
-     * @param \Spryker\Service\UtilDateTime\UtilDateTimeServiceInterface $utilDateTimeService
-     */
     public function __construct(SpyTaxSetQuery $taxSetQuery, UtilDateTimeServiceInterface $utilDateTimeService)
     {
         $this->taxSetQuery = $taxSetQuery;

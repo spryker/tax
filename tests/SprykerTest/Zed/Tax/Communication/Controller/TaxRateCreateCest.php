@@ -23,11 +23,6 @@ use SprykerTest\Zed\Tax\TaxCommunicationTester;
  */
 class TaxRateCreateCest
 {
-    /**
-     * @param \SprykerTest\Zed\Tax\TaxCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbIsVisible(TaxCommunicationTester $i): void
     {
         $i->amOnPage(TaxRateCreatePage::URL);

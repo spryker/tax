@@ -61,9 +61,6 @@ class ReaderTest extends Unit
      */
     protected $taxFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -71,9 +68,6 @@ class ReaderTest extends Unit
         $this->taxFacade = new TaxFacade();
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxRates(): void
     {
         $this->loadFixtures();
@@ -81,9 +75,6 @@ class ReaderTest extends Unit
         $this->assertTrue(count($taxRateCollectionTransfer->getTaxRates()) > 0);
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxRate(): void
     {
         $persistedTaxSet = $this->loadFixtures();
@@ -92,9 +83,6 @@ class ReaderTest extends Unit
         $this->assertSame(sprintf('%.2f', static::DUMMY_TAX_RATE1_PERCENTAGE), $result->getRate());
     }
 
-    /**
-     * @return void
-     */
     public function testTaxRateExists(): void
     {
         $persistedTaxSet = $this->loadFixtures();
@@ -102,9 +90,6 @@ class ReaderTest extends Unit
         $this->assertTrue($result);
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxSets(): void
     {
         $this->loadFixtures();
@@ -112,9 +97,6 @@ class ReaderTest extends Unit
         $this->assertNotEmpty($taxSetCollectionTransfer->getTaxSets());
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxSet(): void
     {
         $persistedTaxSet = $this->loadFixtures();
@@ -122,9 +104,6 @@ class ReaderTest extends Unit
         $this->assertSame(static::DUMMY_TAX_SET_NAME, $result->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testTaxSetExists(): void
     {
         $persistedTaxSet = $this->loadFixtures();
@@ -132,27 +111,18 @@ class ReaderTest extends Unit
         $this->assertTrue($result);
     }
 
-    /**
-     * @return void
-     */
     public function testExceptionRaisedIfAttemptingToFetchNonExistentTaxRate(): void
     {
         $this->expectException(ResourceNotFoundException::class);
         $this->taxFacade->getTaxSet(static::NON_EXISTENT_ID);
     }
 
-    /**
-     * @return void
-     */
     public function testExceptionRaisedIfAttemptingToFetchNonExistentTaxSet(): void
     {
         $this->expectException(ResourceNotFoundException::class);
         $this->taxFacade->getTaxRate(static::NON_EXISTENT_ID);
     }
 
-    /**
-     * @return \Orm\Zed\Tax\Persistence\SpyTaxSet
-     */
     private function loadFixtures(): SpyTaxSet
     {
         $taxRateEntity = new SpyTaxRate();

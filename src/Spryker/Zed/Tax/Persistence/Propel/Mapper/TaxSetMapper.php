@@ -20,20 +20,11 @@ class TaxSetMapper implements TaxSetMapperInterface
      */
     protected $taxRateMapper;
 
-    /**
-     * @param \Spryker\Zed\Tax\Persistence\Propel\Mapper\TaxRateMapperInterface $taxRateMapper
-     */
     public function __construct(TaxRateMapperInterface $taxRateMapper)
     {
         $this->taxRateMapper = $taxRateMapper;
     }
 
-    /**
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
-     * @param \Generated\Shared\Transfer\TaxSetTransfer $taxSetTransfer
-     *
-     * @return \Generated\Shared\Transfer\TaxSetTransfer
-     */
     public function mapTaxSetEntityToTaxSetTransfer(
         SpyTaxSet $taxSetEntity,
         TaxSetTransfer $taxSetTransfer

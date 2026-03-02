@@ -38,11 +38,6 @@ class TaxSetDataHelper extends Module
         return $taxSetTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TaxSetTransfer $taxSetTransfer
-     *
-     * @return int
-     */
     protected function saveTaxSet(TaxSetTransfer $taxSetTransfer): int
     {
         $taxSetEntity = new SpyTaxSet();
@@ -70,11 +65,6 @@ class TaxSetDataHelper extends Module
         return $taxSetTransfer;
     }
 
-    /**
-     * @param array $override
-     *
-     * @return \Generated\Shared\Transfer\TaxRateTransfer
-     */
     protected function createTaxRateTransfer(array $override = []): TaxRateTransfer
     {
         $taxRateTransfer = (new TaxRateBuilder($override))->build();
@@ -94,12 +84,6 @@ class TaxSetDataHelper extends Module
         return $taxRateTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TaxSetTransfer $taxSetTransfer
-     * @param \Generated\Shared\Transfer\TaxRateTransfer $taxRateTransfer
-     *
-     * @return void
-     */
     protected function addTaxRateToTaxSet(TaxSetTransfer $taxSetTransfer, TaxRateTransfer $taxRateTransfer): void
     {
         $taxSetTaxEntity = new SpyTaxSetTax();
@@ -110,9 +94,6 @@ class TaxSetDataHelper extends Module
         $taxSetTransfer->addTaxRate($taxRateTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CountryTransfer
-     */
     protected function haveCountry(): CountryTransfer
     {
         return $this->getLocator()->country()->facade()->getCountryByIso2Code('DE');

@@ -13,12 +13,6 @@ use Orm\Zed\Tax\Persistence\SpyTaxRate;
 
 class TaxRateMapper implements TaxRateMapperInterface
 {
-    /**
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxRate $taxRateEntity
-     * @param \Generated\Shared\Transfer\TaxRateTransfer $taxRateTransfer
-     *
-     * @return \Generated\Shared\Transfer\TaxRateTransfer
-     */
     public function mapTaxRateEntityToTaxRateTransfer(
         SpyTaxRate $taxRateEntity,
         TaxRateTransfer $taxRateTransfer

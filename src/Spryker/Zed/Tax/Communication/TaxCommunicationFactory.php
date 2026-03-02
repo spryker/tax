@@ -170,17 +170,11 @@ class TaxCommunicationFactory extends AbstractCommunicationFactory
         return new SetTable($taxSetQuery, $this->getDateTimeService());
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createDeleteTaxRateForm(): FormInterface
     {
         return $this->getFormFactory()->create(DeleteTaxRateForm::class);
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createDeleteTaxSetForm(): FormInterface
     {
         return $this->getFormFactory()->create(DeleteTaxSetForm::class);
@@ -194,9 +188,6 @@ class TaxCommunicationFactory extends AbstractCommunicationFactory
         return $this->getProvidedDependency(TaxDependencyProvider::SERVICE_DATE_FORMATTER);
     }
 
-    /**
-     * @return \Spryker\Zed\Tax\Dependency\Facade\TaxToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): TaxToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(TaxDependencyProvider::FACADE_LOCALE);

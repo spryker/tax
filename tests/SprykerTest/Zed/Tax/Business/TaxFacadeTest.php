@@ -37,9 +37,6 @@ class TaxFacadeTest extends Unit
      */
     protected TaxBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGetDefaultTaxCountryIso2CodeReturnsDefaultCountryIso2Code(): void
     {
         if ($this->tester->isDynamicStoreEnabled() === true) {
@@ -64,9 +61,6 @@ class TaxFacadeTest extends Unit
         $this->assertSame($this->tester::COUNTRIES[0], $defaultTaxCountryIso2Code);
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxSetCollectionReturnsCorrectTaxSetsWithoutPaginationAndRelations(): void
     {
         // Arrange
@@ -98,9 +92,6 @@ class TaxFacadeTest extends Unit
         ));
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxSetCollectionShouldReturnTaxSetsWithRelations(): void
     {
         // Arrange
@@ -124,9 +115,6 @@ class TaxFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxSetCollectionReturnsPaginatedTaxSetsWithLimitAndOffset(): void
     {
         // Arrange
@@ -158,9 +146,6 @@ class TaxFacadeTest extends Unit
         $this->assertEquals(2, $foundTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testGetTaxSetCollectionFiltersTaxSetsByName(): void
     {
         // Arrange

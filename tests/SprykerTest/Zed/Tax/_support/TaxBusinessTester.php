@@ -47,11 +47,6 @@ class TaxBusinessTester extends Actor
      */
     protected const PRICE_MODE_NET = 'NET_MODE';
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return int
-     */
     public function sumTaxAmount(CalculableObjectTransfer $calculableObjectTransfer): int
     {
         $items = $calculableObjectTransfer->getItems()->getArrayCopy();
@@ -63,13 +58,6 @@ class TaxBusinessTester extends Actor
         });
     }
 
-    /**
-     * @param float $taxRate
-     * @param int $price
-     * @param int $sumPrice
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function createItemTransfer(float $taxRate, int $price, int $sumPrice): ItemTransfer
     {
         $itemTransfer = (new ItemTransfer())
@@ -83,14 +71,6 @@ class TaxBusinessTester extends Actor
         return $itemTransfer;
     }
 
-    /**
-     * @param float $taxRate
-     * @param int $price
-     * @param int $sumPrice
-     * @param int $quantity
-     *
-     * @return array
-     */
     public function createItemTransferCollection(float $taxRate, int $price, int $sumPrice, int $quantity = 1): array
     {
         $items = [];
@@ -102,11 +82,6 @@ class TaxBusinessTester extends Actor
         return $items;
     }
 
-    /**
-     * @param array $itemTransferCollection
-     *
-     * @return \Generated\Shared\Transfer\CalculableObjectTransfer
-     */
     public function createCalculableObjectTransfer(array $itemTransferCollection): CalculableObjectTransfer
     {
         $calculableObjectTransferMock = (new CalculableObjectTransfer())

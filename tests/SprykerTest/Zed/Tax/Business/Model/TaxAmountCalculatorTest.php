@@ -33,9 +33,6 @@ class TaxAmountCalculatorTest extends Unit
      */
     protected $taxFacade;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -131,9 +128,6 @@ class TaxAmountCalculatorTest extends Unit
         $this->assertSame($recalculatedNonSplitSumTaxAmount, $recalculatedSplitSumTaxAmount);
     }
 
-    /**
-     * @return array
-     */
     public function getGroupTestData(): array
     {
         return [
@@ -145,9 +139,6 @@ class TaxAmountCalculatorTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getSeparateTestData(): array
     {
         return [

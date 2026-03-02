@@ -9,8 +9,5 @@ namespace Spryker\Zed\Tax\Dependency\Facade;
 
 interface TaxToLocaleFacadeInterface
 {
-    /**
-     * @return string
-     */
     public function getCurrentLocaleName(): string;
 }

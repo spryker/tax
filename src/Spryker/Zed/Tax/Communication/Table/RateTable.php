@@ -43,10 +43,6 @@ class RateTable extends AbstractTable
      */
     protected $utilDateTimeService;
 
-    /**
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxRateQuery $taxRateQuery
-     * @param \Spryker\Service\UtilDateTime\UtilDateTimeServiceInterface $utilDateTimeService
-     */
     public function __construct(SpyTaxRateQuery $taxRateQuery, UtilDateTimeServiceInterface $utilDateTimeService)
     {
         $this->taxRateQuery = $taxRateQuery;

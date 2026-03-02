@@ -35,12 +35,6 @@ class TaxRateFormDataProvider
      */
     protected ?TaxRateTransfer $taxRateTransfer;
 
-    /**
-     * @param \Spryker\Zed\Tax\Dependency\Facade\TaxToCountryBridgeInterface $countryFacade
-     * @param \Spryker\Zed\Tax\Business\TaxFacadeInterface $taxFacade
-     * @param \Spryker\Zed\Tax\Dependency\Facade\TaxToLocaleFacadeInterface $localeFacade
-     * @param \Generated\Shared\Transfer\TaxRateTransfer|null $taxRateTransfer
-     */
     public function __construct(
         TaxToCountryBridgeInterface $countryFacade,
         TaxFacadeInterface $taxFacade,
@@ -53,11 +47,6 @@ class TaxRateFormDataProvider
         $this->taxRateTransfer = $taxRateTransfer;
     }
 
-    /**
-     * @param int|null $idTaxRate
-     *
-     * @return \Generated\Shared\Transfer\TaxRateTransfer|null
-     */
     public function getData(?int $idTaxRate = null): ?TaxRateTransfer
     {
         if (!$idTaxRate) {

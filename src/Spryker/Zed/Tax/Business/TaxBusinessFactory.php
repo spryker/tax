@@ -105,9 +105,6 @@ class TaxBusinessFactory extends AbstractBusinessFactory
         return new TaxAmountCalculator($this->createAccruedTaxCalculator());
     }
 
-    /**
-     * @return \Spryker\Zed\Tax\Dependency\Facade\TaxToStoreFacadeInterface
-     */
     public function getStoreFacade(): TaxToStoreFacadeInterface
     {
         return $this->getProvidedDependency(TaxDependencyProvider::FACADE_STORE);

@@ -122,9 +122,6 @@ class TaxSetForm extends AbstractType
         );
     }
 
-    /**
-     * @return \Closure
-     */
     protected function createTransformCallback(): Closure
     {
         return function ($taxRates) {
@@ -134,9 +131,6 @@ class TaxSetForm extends AbstractType
         };
     }
 
-    /**
-     * @return \Closure
-     */
     protected function createReverseTransformCallback(): Closure
     {
         return function ($taxRates) {
@@ -164,9 +158,6 @@ class TaxSetForm extends AbstractType
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function createUniqueTaxSetNameConstraint(): Constraint
     {
         return new Callback([

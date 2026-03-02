@@ -28,11 +28,6 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
      */
     protected const FK_TAX_SET = 'fkTaxSet';
 
-    /**
-     * @param string $name
-     *
-     * @return bool
-     */
     public function isTaxSetNameUnique(string $name): bool
     {
         $query = $this->getFactory()
@@ -42,12 +37,6 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
         return !$query->exists();
     }
 
-    /**
-     * @param string $name
-     * @param int $idTaxSet
-     *
-     * @return bool
-     */
     public function isTaxSetNameAndIdUnique(string $name, int $idTaxSet): bool
     {
         $query = $this->getFactory()
@@ -58,11 +47,6 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
         return !$query->exists();
     }
 
-    /**
-     * @param int $idTaxRate
-     *
-     * @return \Generated\Shared\Transfer\TaxRateTransfer|null
-     */
     public function findTaxRate(int $idTaxRate): ?TaxRateTransfer
     {
         $taxRateEntity = $this->getFactory()->createTaxRateQuery()->findOneByIdTaxRate($idTaxRate);
@@ -77,11 +61,6 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
         );
     }
 
-    /**
-     * @param int $idTaxSet
-     *
-     * @return \Generated\Shared\Transfer\TaxSetTransfer|null
-     */
     public function findTaxSet(int $idTaxSet): ?TaxSetTransfer
     {
         $taxSetEntity = $this->getFactory()->createTaxSetQuery()->findOneByIdTaxSet($idTaxSet);
@@ -96,11 +75,6 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TaxSetCriteriaTransfer $taxSetCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\TaxSetCollectionTransfer
-     */
     public function getTaxSetCollection(TaxSetCriteriaTransfer $taxSetCriteriaTransfer): TaxSetCollectionTransfer
     {
         $taxSetCollectionTransfer = new TaxSetCollectionTransfer();
@@ -123,12 +97,6 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
             );
     }
 
-    /**
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxSetQuery $taxSetQuery
-     * @param \Generated\Shared\Transfer\PaginationTransfer $paginationTransfer
-     *
-     * @return \Orm\Zed\Tax\Persistence\SpyTaxSetQuery
-     */
     protected function applyTaxSetPagination(
         SpyTaxSetQuery $taxSetQuery,
         PaginationTransfer $paginationTransfer
@@ -201,12 +169,6 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
         return $taxSetEntitiesIndexedByTaxSetIds;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TaxSetCriteriaTransfer $taxSetCriteriaTransfer
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxSetQuery $taxSetQuery
-     *
-     * @return \Orm\Zed\Tax\Persistence\SpyTaxSetQuery
-     */
     public function applyTaxSetFilters(TaxSetCriteriaTransfer $taxSetCriteriaTransfer, SpyTaxSetQuery $taxSetQuery): SpyTaxSetQuery
     {
         if (!$taxSetCriteriaTransfer->getTaxSetConditions()) {

@@ -28,22 +28,12 @@ class TaxSetCreateCest
      */
     public const TAX_RATE_NAME = 'Tax Rate Name';
 
-    /**
-     * @param \SprykerTest\Zed\Tax\TaxCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbIsVisible(TaxCommunicationTester $i): void
     {
         $i->amOnPage(TaxSetCreatePage::URL);
         $i->seeBreadcrumbNavigation('Administration / Tax Sets / Create Tax Set');
     }
 
-    /**
-     * @param \SprykerTest\Zed\Tax\TaxCommunicationTester $i
-     *
-     * @return void
-     */
     public function iCanAddANewTaxSet(TaxCommunicationTester $i): void
     {
         $i->amOnPage(TaxSetCreatePage::URL);

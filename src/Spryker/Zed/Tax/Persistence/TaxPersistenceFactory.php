@@ -37,17 +37,11 @@ class TaxPersistenceFactory extends AbstractPersistenceFactory
         return SpyTaxSetQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\Tax\Persistence\Propel\Mapper\TaxRateMapperInterface
-     */
     public function createTaxRateMapper(): TaxRateMapperInterface
     {
         return new TaxRateMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\Tax\Persistence\Propel\Mapper\TaxSetMapper
-     */
     public function createTaxSetMapper(): TaxSetMapper
     {
         return new TaxSetMapper(
