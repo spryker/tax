@@ -21,10 +21,7 @@ use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTaxTableMap;
  */
 abstract class AbstractSpyTaxSet extends BaseSpyTaxSet
 {
-    /**
-     * @return void
-     */
-    public function initSpyTaxRates()
+    public function initSpyTaxRates(): void
     {
         /** @var \Propel\Runtime\Collection\ObjectCollection $collectionClassName */
         $collectionClassName = SpyTaxSetTaxTableMap::getTableMap()->getCollectionClassName();
