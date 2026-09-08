@@ -21,4 +21,17 @@ class TaxConfig extends AbstractBundleConfig
     {
         return $this->get(TaxConstants::DEFAULT_TAX_RATE, 0);
     }
+
+    /**
+     * Specification:
+     * - Enables the optional `uuid` column on the `spy_tax_set` table.
+     * - When enabled, the `TaxSetUuid` schema folder is merged during `propel:install`.
+     * - Consumers relying on tax set UUID (e.g. backend API existence checks) require this to be enabled.
+     *
+     * @api
+     */
+    public function isTaxSetUuidEnabled(): bool
+    {
+        return false;
+    }
 }

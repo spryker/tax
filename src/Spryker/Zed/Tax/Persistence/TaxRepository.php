@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\TaxRateTransfer;
 use Generated\Shared\Transfer\TaxSetCollectionTransfer;
 use Generated\Shared\Transfer\TaxSetCriteriaTransfer;
 use Generated\Shared\Transfer\TaxSetTransfer;
+use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTableMap;
 use Orm\Zed\Tax\Persistence\Map\SpyTaxSetTaxTableMap;
 use Orm\Zed\Tax\Persistence\SpyTaxSetQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -27,6 +28,11 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
      * @var string
      */
     protected const FK_TAX_SET = 'fkTaxSet';
+
+    /**
+     * @uses \Orm\Zed\Tax\Persistence\Map\SpyTaxSetTableMap::COL_UUID
+     */
+    protected const string COLUMN_UUID = 'uuid';
 
     public function isTaxSetNameUnique(string $name): bool
     {
@@ -179,6 +185,19 @@ class TaxRepository extends AbstractRepository implements TaxRepositoryInterface
             $taxSetQuery->filterByName_In($taxSetCriteriaTransfer->getTaxSetConditions()->getNames());
         }
 
+        if ($taxSetCriteriaTransfer->getTaxSetConditions()->getUuids() && !$this->isTaxSetUuidSupported()) {
+            return $taxSetQuery->filterByIdTaxSet(null, Criteria::ISNULL);
+        }
+
+        if ($taxSetCriteriaTransfer->getTaxSetConditions()->getUuids()) {
+            $taxSetQuery->filterByUuid_In($taxSetCriteriaTransfer->getTaxSetConditions()->getUuids());
+        }
+
         return $taxSetQuery;
+    }
+
+    protected function isTaxSetUuidSupported(): bool
+    {
+        return SpyTaxSetTableMap::getTableMap()->hasColumn(static::COLUMN_UUID);
     }
 }

@@ -8,6 +8,7 @@
 
     <transfer name="TaxSet">
         <property name="idTaxSet" type="int"/>
+        <property name="uuid" type="string"/>
         <property name="name" type="string"/>
         <property name="amount" type="int"/>
         <property name="taxRates" type="TaxRate[]" singular="taxRate"/>
@@ -134,6 +135,7 @@
 
     <transfer name="TaxSetConditions">
         <property name="names" type="string[]" singular="name"/>
+        <property name="uuids" type="string[]" singular="uuid"/>
     </transfer>
 
     <transfer name="AclEntityMetadataConfig">
