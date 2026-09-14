@@ -39,7 +39,7 @@ class PercentageTransformer implements DataTransformerInterface
      *
      * @return string The value in the transformed representation
      */
-    public function transform($value)
+    public function transform($value): mixed
     {
         return str_replace('.', ',', $value);
     }
@@ -66,7 +66,7 @@ class PercentageTransformer implements DataTransformerInterface
      *
      * @return string The value in the original representation
      */
-    public function reverseTransform($value)
+    public function reverseTransform($value): mixed
     {
         return str_replace(',', '.', $value);
     }

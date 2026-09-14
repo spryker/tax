@@ -94,13 +94,13 @@ class TaxSetForm extends AbstractType
             'choice_label' => 'name',
             'choice_value' => 'idTaxRate',
             'constraints' => [
-                new Callback([
-                    'callback' => function (ArrayObject $taxRates, ExecutionContextInterface $context) {
+                new Callback(
+                    callback: function (ArrayObject $taxRates, ExecutionContextInterface $context) {
                         if ($taxRates->count() <= 0) {
                             $context->addViolation('You should choose one or more tax rates');
                         }
                     },
-                ]),
+                ),
             ],
         ]);
 
@@ -160,8 +160,8 @@ class TaxSetForm extends AbstractType
 
     protected function createUniqueTaxSetNameConstraint(): Constraint
     {
-        return new Callback([
-            'callback' => function ($name, ExecutionContextInterface $context) {
+        return new Callback(
+            callback: function ($name, ExecutionContextInterface $context) {
                 if (!$name) {
                     return;
                 }
@@ -180,6 +180,6 @@ class TaxSetForm extends AbstractType
                     ]);
                 }
             },
-        ]);
+        );
     }
 }
