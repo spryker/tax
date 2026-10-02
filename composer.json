@@ -35,7 +35,8 @@
     "autoload": {
         "psr-4": {
             "Spryker\\": "src/Spryker/",
-            "SprykerTest\\Shared\\Tax\\Helper\\": "tests/SprykerTest/Shared/Tax/_support/Helper/"
+            "SprykerTest\\Shared\\Tax\\Helper\\": "tests/SprykerTest/Shared/Tax/_support/Helper/",
+            "SprykerTest\\Zed\\Tax\\PageObject\\": "tests/SprykerTest/Zed/Tax/_support/PageObject/"
         }
     },
     "autoload-dev": {
